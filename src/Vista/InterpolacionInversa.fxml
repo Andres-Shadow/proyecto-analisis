@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1013.0" scaleShape="false" style="-fx-background-color: #F1F1F2;" styleClass="fondoBottonAnchorPanel" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.InterpolacionInversa">
+  <children>
+      <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="1016.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="irRungeKutta" alignment="CENTER" onAction="#irRungeKuttaAction" prefHeight="29.0" prefWidth="56.0" style="-fx-background-color: #2E4347; -fx-background-radius: 45;" styleClass="boton" text="o" textFill="WHITE">
+                           <font>
+                              <Font name="Bookman Old Style" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="40.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Label alignment="CENTER" prefHeight="44.0" prefWidth="837.0" style="-fx-background-color: #1995AD; -fx-background-radius: 10;" text="INTERPOLACION INVERSA " textFill="WHITE">
+                           <font>
+                              <Font name="Cambria Bold" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                      <LineChart fx:id="graph" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="766.0">
+                        <xAxis>
+                          <NumberAxis label="x" tickUnit="1.0" fx:id="x" />
+                        </xAxis>
+                        <yAxis>
+                          <NumberAxis label="F(x)" side="LEFT" tickUnit="1.0" />
+                        </yAxis>
+                      </LineChart>
+                        <TextArea fx:id="ConsolaArea" editable="false" prefHeight="490.0" prefWidth="236.0">
+                           <HBox.margin>
+                              <Insets bottom="30.0" top="30.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="51.0" prefWidth="880.0" style="-fx-background-color: #A1D6E2; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                     <children>
+                      <Label layoutX="26.0" layoutY="34.0" text="Punto:">
+                        <font>
+                          <Font name="Cambria Bold" size="20.0" fx:id="x1" />
+                        </font>
+                      </Label>
+                      <TextField fx:id="valorX" layoutX="108.0" layoutY="34.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" />
+                      <TextField fx:id="valorY" layoutX="173.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" />
+                      <Button fx:id="GraficarButton" alignment="CENTER" layoutX="360.0" layoutY="13.0" onAction="#GraficarAction" prefHeight="68.0" prefWidth="194.0" style="-fx-background-color: #1995AD; -fx-background-radius: 45;" styleClass="boton" text="Graficar" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria Bold" size="35.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="PuntoButton" alignment="CENTER" layoutX="243.0" layoutY="24.0" onAction="#PuntoAction" prefHeight="33.0" prefWidth="47.0" style="-fx-background-color: #1995AD; -fx-background-radius: 45;" styleClass="boton" text="+" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="limpiar" alignment="CENTER" layoutX="896.0" layoutY="22.0" onAction="#limpiarAction" prefHeight="46.0" prefWidth="81.0" style="-fx-background-color: #2E4347; -fx-background-radius: 45;" styleClass="boton" text="off" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="24.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="126.0" layoutY="7.0" text="X">
+                           <font>
+                              <Font name="Cambria Bold" size="20.0" fx:id="x11" />
+                           </font>
+                        </Label>
+                        <Label layoutX="190.0" layoutY="7.0" text="Y">
+                           <font>
+                              <Font name="Cambria Bold" size="20.0" fx:id="x111" />
+                           </font>
+                        </Label>
+                        <Label layoutX="738.0" layoutY="10.0" text="X">
+                           <font>
+                              <Font name="Cambria Bold" size="20.0" fx:id="x1111" />
+                           </font>
+                        </Label>
+                        <Button fx:id="Buscar" alignment="CENTER" layoutX="795.0" layoutY="24.0" onAction="#BuscarAction" prefHeight="33.0" prefWidth="47.0" style="-fx-background-color: #1995AD; -fx-background-radius: 45;" styleClass="boton" text="+" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="buscarX" layoutX="721.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" />
+                        <Label layoutX="600.0" layoutY="35.0" text="Buscar f(x):">
+                           <font>
+                              <Font name="Cambria Bold" size="20.0" fx:id="x12" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+  </children>
+</AnchorPane>

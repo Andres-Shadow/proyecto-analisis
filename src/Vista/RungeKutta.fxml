@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1013.0" scaleShape="false" style="-fx-background-color: #F1F1F2;" styleClass="fondoBottonAnchorPanel" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.RungeKutta">
+  <children>
+      <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="1016.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="irInterInversa" alignment="CENTER" onAction="#irInterInversaAction" prefHeight="29.0" prefWidth="56.0" style="-fx-background-color: #2E4347; -fx-background-radius: 45;" styleClass="boton" text="o" textFill="WHITE">
+                           <font>
+                              <Font name="Bookman Old Style" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="40.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Label alignment="CENTER" prefHeight="44.0" prefWidth="837.0" style="-fx-background-color: #1995AD; -fx-background-radius: 10;" text="Runge Kutta" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria Bold" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                      <LineChart fx:id="graph" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="606.0">
+                        <xAxis>
+                          <NumberAxis label="x" tickUnit="1.0" fx:id="x" />
+                        </xAxis>
+                        <yAxis>
+                          <NumberAxis label="F(x)" side="LEFT" tickUnit="1.0" />
+                        </yAxis>
+                      </LineChart>
+                        <TextArea fx:id="ConsolaArea" editable="false" prefHeight="506.0" prefWidth="398.0">
+                           <HBox.margin>
+                              <Insets bottom="30.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="51.0" prefWidth="880.0" style="-fx-background-color: #A1D6E2; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                     <children>
+                      <Button fx:id="GraficarButton" alignment="CENTER" layoutX="785.0" layoutY="1.0" onAction="#GraficarAction" prefHeight="68.0" prefWidth="194.0" style="-fx-background-color: #1995AD; -fx-background-radius: 45;" styleClass="boton" text="Graficar" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria Bold" size="35.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="funcionValor" layoutX="115.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="159.0" />
+                        <Label layoutX="20.0" layoutY="21.0" text="Funcion: ">
+                           <font>
+                              <Font name="Cambria Bold" size="20.0" fx:id="x11" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="339.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" fx:id="xoValor" />
+                        <Label layoutX="301.0" layoutY="24.0" text="Xo:">
+                           <font>
+                              <Font name="Cambria Bold" size="20.0" fx:id="x1" />
+                           </font>
+                        </Label>
+                        <Label layoutX="412.0" layoutY="25.0" text="Yo:">
+                           <font>
+                              <Font name="Cambria Bold" size="20.0" fx:id="x12" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="yoValor" layoutX="452.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField layoutX="566.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" fx:id="xnValor" />
+                        <Label layoutX="526.0" layoutY="25.0" text="Xn:">
+                           <font>
+                              <Font name="Cambria Bold" size="20.0" fx:id="x121" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="iteraciones" layoutX="685.0" layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" />
+                        <Label layoutX="645.0" layoutY="26.0" text="Ite:">
+                           <font>
+                              <Font name="Cambria Bold" size="20.0" fx:id="x122" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+  </children>
+</AnchorPane>

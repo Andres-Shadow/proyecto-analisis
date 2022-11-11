@@ -1,5 +1,5 @@
 
-package Interpolacion_Inversa;
+package Aplicacion;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,8 @@ public class Aplicacion extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Grafica.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/Vista/InterpolacionInversa.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Vista/RungeKutta.fxml"));
         
         Scene scene = new Scene(root);
         stage.setTitle("Interpolacion Inversa");
